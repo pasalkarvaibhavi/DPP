@@ -1,0 +1,11 @@
+184. Department Highest Salary
+
+Write a solution to find employees who have the highest salary in each of the departments.
+
+SQL Query:
+
+SELECT d.name as Department, e.name as Employee, e.salary
+FROM Employee as e
+JOIN Department as d
+ON e.departmentId = d.id
+WHERE e.salary = (SELECT max(salary) from Employee where departmentId=d.id);
