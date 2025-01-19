@@ -1,0 +1,22 @@
+
+Calculate Salaries
+
+Write an SQL query to find the salaries of the employees after applying taxes. The tax rate is calculated for each company based on the following criteria:
+
+0% If the max salary of any employee in the company is less than 1000$.
+24% If the max salary of any employee in the company is in the range [1000, 10000] inclusive.
+49% If the max salary of any employee in the company is greater than 10000$.
+Return the result table in any order. Round the salary to the nearest integer.
+
+SQL Query:
+
+select t1.company_id,t1.employee_id,t1.employee_name, cast(t1.salary - t2.test*t1.salary/100 as int) as salary
+from salaries t1 
+join (select company_id , max(salary), 
+        case when max(salary)<1000 then 0 
+        when max(salary) between 1000 and 10000 then 24
+        when max(salary) > 10000 then 49
+        end as test
+from salaries 
+group by 1) t2
+on t1.company_id=t2.company_id;
