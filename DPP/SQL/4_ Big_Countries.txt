@@ -1,0 +1,9 @@
+595. Big Countries
+
+Write a solution to find the name, population, and area of the big countries.
+
+SQL Query:
+
+SELECT name,population,area
+FROM world
+where area>=3000000 or population>=25000000;

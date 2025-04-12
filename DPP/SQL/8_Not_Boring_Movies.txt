@@ -1,0 +1,12 @@
+620. Not Boring Movies
+
+Write a solution to report the movies with an odd-numbered ID and a description that is not "boring".
+
+SQL Query:
+
+SELECT *
+FROM Cinema
+where (id%2)!=0
+AND descriptioon NOT IN ('boring')
+ORDER BY rating DESC;
+
