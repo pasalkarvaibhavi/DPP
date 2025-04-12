@@ -1,9 +1,0 @@
-176. Second Highest Salary
-
-Write a solution to find the second highest distinct salary from the Employee table. 
-
-SQL Query:
-
-SELECT max(salary) as SeconHighestSalary
-FROM Employee
-where salary < (SELECT max(salary) FROM Employee);
